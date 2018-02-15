@@ -1,23 +1,16 @@
+include Math
+
 module Utils
 
-  ## Global Variables
-  include Math
-
-  ##TAU!!!!
-  $TAU = PI*2
-
-  $RESOLUTION = 500 # All images are squares
-  $GRID = Array.new($RESOLUTION)
-  $DEBUGGING = false
-  $BACKGROUND_COLOR = [0, 0, 0] # [r, g, b]
-
-
-  ## Create board
-  for i in (0...$RESOLUTION)
-    $GRID[i] = Array.new($RESOLUTION)
-    for j in (0...$RESOLUTION)
-      $GRID[i][j] = $BACKGROUND_COLOR
+  def self.create_board()## Create board
+    board = Array.new($RESOLUTION)
+    for i in (0...$RESOLUTION)
+      board[i] = Array.new($RESOLUTION)
+      for j in (0...$RESOLUTION)
+        board[i][j] = $BACKGROUND_COLOR
+      end
     end
+    return board
   end
 
   ## Write GRID to OUTFILE

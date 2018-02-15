@@ -1,6 +1,16 @@
-load "Utils.rb"
+require './Utils.rb'
 
+##TAU!!!!
+$TAU = PI*2
+
+$RESOLUTION = 500 # All images are squares
+$DEBUGGING = false
+$BACKGROUND_COLOR = [0, 0, 0] # [r, g, b]
 $OUTFILE = "image.ppm"
+$GRID = Utils.create_board()
+
+
+
 
 # Draw a circle
 i = 0
