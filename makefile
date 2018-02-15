@@ -1,8 +1,8 @@
 display: convert
 	display image.png
 
-all: line.rb
-	ruby line.rb
+all: Main.rb
+	ruby Main.rb
 
 cat: all
 	cat image.ppm

@@ -1,15 +1,14 @@
-class Utils
+module Utils
 
   ## Global Variables
   include Math
 
   ##TAU!!!!
-  TAU = PI*2
+  $TAU = PI*2
 
   $RESOLUTION = 500 # All images are squares
   $GRID = Array.new($RESOLUTION)
   $DEBUGGING = false
-  $OUTFILE = "image.ppm"
   $BACKGROUND_COLOR = [0, 0, 0] # [r, g, b]
 
 
@@ -22,8 +21,8 @@ class Utils
   end
 
   ## Write GRID to OUTFILE
-  def write_out()
-    file = File.open($OUTFILE, 'w')
+  def self.write_out(file)
+    file = File.open(file, 'w')
     file.puts "P3 #$RESOLUTION #$RESOLUTION 255" #Header in 1 line
     for row in $GRID
       for pixel in row
@@ -40,12 +39,12 @@ class Utils
 
 
   # Plot a point on GRID (from top left)
-  def plot(x, y, r: 255, g: 255, b: 255) $GRID[y%$RESOLUTION][x%$RESOLUTION] = [r.floor, g.floor, b.floor] end
+  def self.plot(x, y, r: 255, g: 255, b: 255) $GRID[y%$RESOLUTION][x%$RESOLUTION] = [r.floor, g.floor, b.floor] end
   # Plot a point on GRID (from bottom left)
-  def plot_bot(x, y, r: 255, g: 255, b: 255) plot(x%$RESOLUTION, ($RESOLUTION - y)%$RESOLUTION, r: r, g: g, b: b) end
+  def self.plot_bot(x, y, r: 255, g: 255, b: 255) plot(x%$RESOLUTION, ($RESOLUTION - y)%$RESOLUTION, r: r, g: g, b: b) end
 
   # Define a line by 2 points
-  def line(x0, y0, x1, y1, r: 255, g: 255, b: 255)
+  def self.line(x0, y0, x1, y1, r: 255, g: 255, b: 255)
     # x0 is always left of x1
     if x1 < x0; line(x1, y1, x0, y0, r: r, g: g, b: b) else
 
@@ -114,7 +113,7 @@ class Utils
   end
 
   ## Uses 1 while loop. It's actually slower than the other line function.
-  def lineINTEGRATED(x0, y0, x1, y1, r: 255, g: 255, b: 255)
+  def self.lineINTEGRATED(x0, y0, x1, y1, r: 255, g: 255, b: 255)
     # x0 is always left of x1
     if x1 < x0; line(x1, y1, x0, y0, r: r, g: g, b: b) else
 
@@ -185,9 +184,9 @@ class Utils
   end
 
   # Define a line by a point, angle and length
-  def line_directed(x0, y0, dir, len, r: 255, g: 255, b: 255, cast_down:true)
-    x1 = len * cos(dir) + x0
-    y1 = len * sin(dir) + y0
+  def self.line_directed(x0, y0, dir, len, r: 255, g: 255, b: 255, cast_down:true)
+    x1 = len * Math.cos(dir) + x0
+    y1 = len * Math.sin(dir) + y0
     if cast_down
       x1 = x1.floor
       y1 = y1.floor
