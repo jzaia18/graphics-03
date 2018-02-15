@@ -15,6 +15,8 @@ module Utils
 
   ## Write GRID to OUTFILE
   def self.write_out(file)
+    puts OUTFILE
+    puts "HELLO"
     file = File.open(file, 'w')
     file.puts "P3 #$RESOLUTION #$RESOLUTION 255" #Header in 1 line
     for row in $GRID
