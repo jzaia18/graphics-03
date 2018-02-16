@@ -1,6 +1,6 @@
-include Math
+require './MatrixUtils.rb'
 
-module Utils
+module Draw
 
   def self.create_board()## Create board
     board = Array.new($RESOLUTION)
