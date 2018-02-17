@@ -31,7 +31,7 @@ class Matrix
 
   #Set a coord
   def set(row, col, val)
-    if row > @rows or col > @cols or row == 0 or col == 0
+    if row >= @rows or col >= @cols or row < 0 or col < 0
       return;
     end
     @data[row][col] = val

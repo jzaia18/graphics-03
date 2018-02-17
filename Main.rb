@@ -11,7 +11,7 @@ $RESOLUTION = 500 # All images are squares
 $DEBUGGING = false
 $BACKGROUND_COLOR = [0, 0, 0] # [r, g, b]
 $OUTFILE = "image.ppm"
-$GRID = Draw.create_board()
+#$GRID = Draw.create_board()
 
 # # Draw a circle
 # i = 0
@@ -31,3 +31,7 @@ puts edge_mat.to_s
 edge_mat.add_col([1, 2, 3, 4])
 
 puts edge_mat.to_s
+
+a = MatrixUtils.identity(3)
+
+puts a.to_s
