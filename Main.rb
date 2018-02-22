@@ -29,14 +29,23 @@ edge_mat.set(2, 5, 3)
 puts edge_mat
 
 edge_mat.add_col([1, 2, 3, 4])
+edge_mat.add_col([1, 2, 3, 4])
+edge_mat.add_col([1, 2, 3, 4])
+edge_mat.add_col([1, 2, 3, 4])
+edge_mat.add_col([1, 2, 3, 4])
+edge_mat.add_col([1, 2, 3, 4])
 
 puts edge_mat
 
-a = MatrixUtils.identity(3)
+a = MatrixUtils.identity(4)
 
 puts a
 
-puts a.get_point(1,1)
-puts a.get_point(1,0)
+puts a.get(1,1)
+puts a.get(1,0)
 puts a.get_row(1).to_s
 puts a.get_col(1).to_s
+
+puts MatrixUtils.multiply(a, edge_mat)
+puts MatrixUtils.add(edge_mat, edge_mat)
+puts MatrixUtils.subtract(edge_mat, edge_mat)

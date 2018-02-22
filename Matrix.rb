@@ -17,9 +17,7 @@ class Matrix
   end
 
   # For compatablity
-  def to_str
-    to_s
-  end
+  def to_str to_s; end
 
   #Neatly represent data
   def to_s
@@ -36,21 +34,23 @@ class Matrix
 
   #Set a coord
   def set(row, col, val)
-    if row >= @rows or col >= @cols or row < 0 or col < 0
-      return;
-    end
+    return nil if row >= @rows || col >= @cols || row < 0 || col < 0
     @data[row][col] = val
   end
 
-  def get_point(row, col)
+  # Get a number
+  def get(row, col)
+    return nil if row >= @rows || row < 0 || col >= @cols || col < 0
     return @data[row][col]
   end
 
-  def get_col(row)
+  def get_row(row)
+    return nil if row >= @rows || row < 0
     return @data[row]
   end
 
-  def get_row(col)
+  def get_col(col)
+    return nil if col >= @cols || col < 0
     ret = []
     for i in (0...@rows)
       ret.push(@data[i][col])
