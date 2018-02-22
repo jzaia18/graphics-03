@@ -2,7 +2,7 @@ require './Draw.rb'
 require './MatrixUtils.rb'
 require './Matrix.rb'
 
-include Math #not for long!
+include Math
 
 ##TAU!!!!
 $TAU = PI*2
@@ -26,12 +26,17 @@ edge_mat = Matrix.new(4, 0)
 
 edge_mat.set(2, 5, 3)
 
-puts edge_mat.to_s
+puts edge_mat
 
 edge_mat.add_col([1, 2, 3, 4])
 
-puts edge_mat.to_s
+puts edge_mat
 
 a = MatrixUtils.identity(3)
 
-puts a.to_s
+puts a
+
+puts a.get_point(1,1)
+puts a.get_point(1,0)
+puts a.get_row(1).to_s
+puts a.get_col(1).to_s

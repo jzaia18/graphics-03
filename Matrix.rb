@@ -16,13 +16,18 @@ class Matrix
     end
   end
 
+  # For compatablity
+  def to_str
+    to_s
+  end
+
   #Neatly represent data
   def to_s
-    ret = "\n" + @rows.to_s + 'x' + @cols.to_s + "matrix:\n"
+    ret = "\n" + @rows.to_s + 'x' + @cols.to_s + " matrix:\n"
     for row in @data
       for datum in row
         ret+= "nil" if !datum
-        ret+= datum.to_s + "   "
+        ret+= datum.to_s + "\t"
       end
       ret+= "\n"
     end
@@ -35,6 +40,22 @@ class Matrix
       return;
     end
     @data[row][col] = val
+  end
+
+  def get_point(row, col)
+    return @data[row][col]
+  end
+
+  def get_col(row)
+    return @data[row]
+  end
+
+  def get_row(col)
+    ret = []
+    for i in (0...@rows)
+      ret.push(@data[i][col])
+    end
+    return ret
   end
 
   #Add a collumn. Data is a list of what should be entered

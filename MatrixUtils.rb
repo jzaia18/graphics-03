@@ -11,7 +11,10 @@ module MatrixUtils
 
   # Multiplies the 2 matricies (dot product)
   def self.multiply(m1, m2)
+    ret = Matrix.new(m1.rows, m2.cols)
 
 
+
+    return ret
   end
 end
